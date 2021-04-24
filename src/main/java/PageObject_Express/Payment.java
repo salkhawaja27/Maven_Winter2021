@@ -42,8 +42,8 @@ public class Payment extends Abstract_Class {
     public void Cvvcode(String userValue){
         Reusable_Actions_PageObject.sendKeysMethod(driver,Cvv,userValue,logger,"cvvcode");
     }//end of cvvcode
-    public void Order(String userValue){
-        Reusable_Actions_PageObject.sendKeysMethod(driver,Placeorder,userValue,logger,"Place Order");
+    public void PlaceOrder(){
+        Reusable_Actions_PageObject.clickOnElement(driver,Placeorder,logger,"Place Order");
     }//end of place order
 
 }//end of payment page

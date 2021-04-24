@@ -18,37 +18,36 @@ public class Bag_Cart extends Abstract_Class {
     }//end of constructor
 
     //define webelements
-    @FindBy(xpath = "//*[@value='dropdownvalue']")
+    @FindBy(xpath = "//*[@value='2']")
     WebElement Quantity;
     @FindBy(xpath = "//*[@aria-label='Continue to Checkout']")
     WebElement Checkout;
-    @FindBy(xpath = "//button[text()='Checkout as Guest']")
+    @FindBy(xpath = "//*[text()='Checkout as Guest']")
     WebElement Guestcheckout;
 
     //create a method for express home
-    public void quantity(String userValue) {
-        Reusable_Actions_PageObject.dropdownByText(driver, Quantity, userValue, logger, "quantity");
+    public void quantity() {
+        Reusable_Actions_PageObject.clickOnElement(driver, Quantity, logger, "quantity");
     }//end of quantity
-
-    public void size(String size){
-        //define the explicit wait here
-        try{
-           explicit wait condition by.xpath("//*[text()='"+size+"']").click();
-           logpass
-        }catch(){
-            logfail
-                    screenshotmethod
-        }
-    }
 
     public void checkout() {
         Reusable_Actions_PageObject.clickOnElement(driver, Checkout, logger, "Checkout");
     }//end of checkout
 
     public void guest() {
-        Reusable_Actions_PageObject.clickOnElement(driver, Checkout, logger, "guestCheckout");
+        Reusable_Actions_PageObject.clickOnElement(driver, Guestcheckout, logger, "guestCheckout");
     }//end of guest checkout
 
+
+    // public void size(String size){
+    //define the explicit wait here
+    //try{
+    //  explicit wait condition by.xpath("//*[text()='"+size+"']").click();
+    //logpass
+    //}catch(){
+    //logfail
+    //screenshotmethod
+    // }
 }////end of bag_cart tab
 
 

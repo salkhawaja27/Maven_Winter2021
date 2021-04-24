@@ -62,7 +62,7 @@ public class Reusable_Actions_PageObject {
     }//end of navigate method with headless
 
     //method to click on any webelement by explicit wait
-    public static void mouseHover(WebDriver driver, WebElement xpathLocator, ExtentTest logger, String elementName){
+    public static void MouseHover(WebDriver driver, WebElement xpathLocator, ExtentTest logger, String elementName){
         //define by explicit wait
         WebDriverWait wait = new WebDriverWait(driver,10);
         //mouse action command
@@ -78,6 +78,22 @@ public class Reusable_Actions_PageObject {
             logger.log(LogStatus.FAIL,"Unable to hover to an element " + elementName + " " + e);
         }
     }//end of mouseHover
+
+    public static void hoverClick(WebDriver driver, WebElement XpathLocator, ExtentTest logger, String elementName) {
+        //explicit
+        WebDriverWait Wait = new WebDriverWait(driver, 10);
+        //mouse action
+        Actions actions = new Actions(driver);
+        try {
+            WebElement element = Wait.until(ExpectedConditions.visibilityOf(XpathLocator));
+            actions.moveToElement(element).click().perform();
+            logger.log(LogStatus.PASS,"Successful hoverclick " + elementName);
+        } catch (Exception e) {
+            System.out.println("unable to hover and click" + "" + e);
+            logger.log(LogStatus.FAIL," unsuccessful hover click" + "" + e);
+            getScreenShot(driver,elementName,logger);
+        }//end of hover
+    }
 
     //method to click on any webelement by explicit wait
     public static void clickOnElement(WebDriver driver,WebElement xpathLocator, ExtentTest logger, String elementName){
@@ -167,6 +183,22 @@ public class Reusable_Actions_PageObject {
         }
         return result;
     }//end of capture element by text
+
+    public static void mouseHover(WebDriver driver, WebElement XpathLocator, ExtentTest logger, String elementName) {
+        //explicit
+        WebDriverWait Wait = new WebDriverWait(driver, 10);
+        //mouse action
+        Actions actions = new Actions(driver);
+        try {
+            WebElement element = Wait.until(ExpectedConditions.visibilityOf(XpathLocator));
+            actions.moveToElement(element).click().perform();
+            logger.log(LogStatus.PASS,"Successful Mouse hover " + elementName);
+        } catch (Exception e) {
+            System.out.println("unable to hover and click" + "" + e);
+            logger.log(LogStatus.FAIL," unsuccessful hover click" + "" + e);
+            getScreenShot(driver,elementName,logger);
+        }//end of hover
+    }
 
 
     //method to capture screenshot when logger fails

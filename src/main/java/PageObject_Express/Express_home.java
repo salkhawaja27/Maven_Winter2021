@@ -22,7 +22,7 @@ public class Express_home extends Abstract_Class {
     //define webelements
     @FindBy(xpath = "//button[@id= 'closeModal']")
     WebElement homepagepopup;
-    @FindBy(xpath = "//*[@text()='Men']")
+    @FindBy(xpath = "//a[@href='/mens-clothing']")
     WebElement menstab;
     @FindBy(xpath = "//a[text()='Sweatshirts & Hoodies']")
     WebElement sweaters;
@@ -32,7 +32,7 @@ public class Express_home extends Abstract_Class {
         Reusable_Actions_PageObject.clickOnElement(driver,homepagepopup,logger,"Homepagepopup");
     }//end of popup
     public void mens() {
-        Reusable_Actions_PageObject.clickOnElement(driver, menstab, logger, "menstab");
+        Reusable_Actions_PageObject.MouseHover(driver, menstab, logger,"hover");
     }//end of mens tab
     public void sweatersandhoodies() {
         Reusable_Actions_PageObject.clickOnElement(driver, sweaters, logger, "sweaters");

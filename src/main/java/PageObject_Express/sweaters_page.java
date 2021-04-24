@@ -18,12 +18,12 @@ public class sweaters_page extends Abstract_Class {
     }//end of constructor
 
     //define webelements
-    @FindBy(xpath = "//a[@class='_1JYBt']")
+    @FindBy(xpath = "//*[@class='_1JYBt']")
     WebElement Firstsweater;
 
 
     //create a method for express home
-    public void sweaterone() {
+    public void Sweater1() {
         Reusable_Actions_PageObject.clickOnElement(driver, Firstsweater, logger, "firstsweateronpage");
     }//end of sweater tab
 
